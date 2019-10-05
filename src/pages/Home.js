@@ -11,8 +11,9 @@ class Main extends React.Component{
 		index:0
 	  }
 	}
+	startLoop = 0;
 
- changeImg=()=>{
+     changeImg=()=>{
 		let i = this.state.index;
 		  if(i < 2){
 		   i++;
@@ -22,11 +23,14 @@ class Main extends React.Component{
 		this.setState({index:i})
 		}
 
-	startLoop= ()=> {
-	 setInterval(this.changeImg, 3000);
-	}
+	
 	componentDidMount(){
-      this.startLoop();
+	  this.startLoop= setInterval(this.changeImg, 3000);
+	}
+
+	componentWillUnmount(){
+		//console.log(this.startLoop);
+		clearInterval(this.startLoop);
 	}
   
 	render() {
