@@ -34,7 +34,7 @@ class ContactUs extends Component {
     errors.phoneNum =''
     errors.email =''
 
-    if (!this.state.name || this.state.name.length < 3) 
+    if (!this.state.name || this.state.name.trim().length < 3) 
     {
         errors.name = 'Invalid name'
         formisValid = false
